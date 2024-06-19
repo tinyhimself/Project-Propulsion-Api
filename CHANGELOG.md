@@ -1,8 +1,13 @@
 # Updates List
 
 ## Tiny
-1. Added readme doc
-2. Added changelog and direction docs. This change also included an images folder to store diagrams for our documentation.
+### 10/06/2024
+- Added readme doc
+- Added changelog and direction docs. This change also included an images folder to store diagrams for our documentation.
+### 19/06/2024 
+- Added Spring Labraries for API implementation.
+- Added Skelleton java API with an unimplemented controller.
+- Updated UML Diagram
 
 ## Sgoloza
-1. Add a description for your changes here
+- Add a description for your changes here
