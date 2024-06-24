@@ -13,4 +13,7 @@
 - Link to YT video: https://youtu.be/YVl6M5ztOu8
 
 ## Sgoloza
-- Add a description for your changes here
+### 24/04/2024
+- added two packages Models and Views
+- Added a class User inside Models package
+  
