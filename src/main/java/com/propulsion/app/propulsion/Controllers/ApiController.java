@@ -1,4 +1,4 @@
-package com.propulsion.app.propulsion.controllers;
+package com.propulsion.app.propulsion.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
