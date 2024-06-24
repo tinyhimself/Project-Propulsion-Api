@@ -8,6 +8,9 @@
 - Added Spring Labraries for API implementation.
 - Added Skelleton java API with an unimplemented controller.
 - Updated UML Diagram
+### 24/04/2024
+- Fixed endpoints
+- Link to YT video: https://youtu.be/YVl6M5ztOu8
 
 ## Sgoloza
 - Add a description for your changes here

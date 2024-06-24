@@ -1,4 +1,4 @@
-package com.propulsion.app.controllers;
+package com.propulsion.app.propulsion.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,5 +9,10 @@ public class ApiController {
     @GetMapping(value = "/")
     public String getPage() {
         return "Welcome";
+    }
+
+    @GetMapping(value = "/post")
+    public String getAnotherPage() {
+        return "Another Welcome";
     }
 }
