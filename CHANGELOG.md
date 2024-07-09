@@ -22,3 +22,5 @@
 - added two packages Models and Views
 - Added a class User inside Models package
   
+### 09/07/2024
+- added CONTRIBUTION.md file
