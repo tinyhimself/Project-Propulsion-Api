@@ -26,6 +26,8 @@
 - added CONTRIBUTION.md file
 
 ### 15/07/2024
--  Create a folder to store all the objects defined below (under src/test/)
--  Create a dockerfile that does the following
+-  Created a folder to store all the objects defined below (under src/test/)
+-  Created a dockerfile that does the following
     * Pull a mssql base image
+- Created a script to create schema , tables and load rand data
+- Modified docker file to add above script. 
