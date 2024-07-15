@@ -24,3 +24,8 @@
   
 ### 09/07/2024
 - added CONTRIBUTION.md file
+
+### 15/07/2024
+-  Create a folder to store all the objects defined below (under src/test/)
+-  Create a dockerfile that does the following
+    * Pull a mssql base image
