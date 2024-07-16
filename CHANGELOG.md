@@ -30,4 +30,8 @@
 -  Created a dockerfile that does the following
     * Pull a mssql base image
 - Created a script to create schema , tables and load rand data
-- Modified docker file to add above script. 
+- Modified docker file to add above script.
+
+### 16/07/2024
+- added database connection string in application.properties -[ reference](https://www.youtube.com/watch?v=_Drg6kful2U)
+- added Helpers folder and DBHelpers class for all database related functions
