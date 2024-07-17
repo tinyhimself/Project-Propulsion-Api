@@ -35,3 +35,6 @@
 ### 16/07/2024
 - added database connection string in application.properties -[ reference](https://www.youtube.com/watch?v=_Drg6kful2U)
 - added Helpers folder and DBHelpers class for all database related functions
+
+### 17/07/2024
+- added database dependency in build.grandle file
