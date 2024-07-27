@@ -1,63 +1,27 @@
-Declare @Id int, @IdDB int
-Declare @DB varchar(10), @USEDBquery varchar(20)
-Declare @query varchar(max), @addQuery varchar(max), @insertDataQuery nvarchar(max)
-SET @Id=0
-SET @IdDB = 1
+-- Create a new database
+CREATE DATABASE propulsionapi;
+GO
 
-While @IdDB <= 10
-BEGIN
-    Set @DB = 'MYDB' + CAST(@IdDB as varchar(10))
-    SET @query = FORMATMESSAGE(N'CREATE DATABASE %s', @DB)
-    SET @USEDBquery = FORMATMESSAGE('USE %s', @DB)
-    -- Create Tables
-    BEGIN TRY
-        EXEC(@query)
-        PRINT 'RUN QUERY FOR Adding Table '
-        SET @addQuery = '
-         CREATE Table tblAuthors
-            (
-                    Id int identity primary key,
-                    Author_name nvarchar(50),
-                    country nvarchar(50)
-            )
-        '
-        SET @query = FORMATMESSAGE('%s %s', @USEDBquery, @addQuery)
-        PRINT @query
-        EXEC(@query)
-        PRINT @DB + ' insert on ' + CAST(@Id as varchar(10))
-    END TRY
-    BEGIN CATCH
-        PRINT 'ERROR on ' + @DB + ' : ' +  cast (ERROR_LINE() as varchar(10))
-            + ' MSG:' + ERROR_MESSAGE()
-    END CATCH
+-- Use the newly created database
+USE propulsionapi;
+GO
 
-    -- INSERT DATA INTO TABLE
-    SET @insertDataQuery = '
-        Insert Into tblAuthors values (''Author - '' + CAST(@Id as nvarchar(10)),
-        ''Country - '' + CAST(@Id as nvarchar(10)) + '' name'')
-       '
-    SET @insertDataQuery = FORMATMESSAGE('%s %s', @USEDBquery ,@insertDataQuery);
-    PRINT @insertDataQuery
-    While @Id <= 10
-        Begin
-            Begin TRY
-                EXECUTE sp_executesql
-                    @insertDataQuery,
-                    N'@Id int',
-                    @Id = @Id;
+-- Create a new table
+CREATE TABLE [dbo].[User](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [name] [varchar](500) NULL,
+    [surname] [varchar](500) NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED
+(
+[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+    ) ON [PRIMARY]
+GO
 
-                SET @Id = @Id+1
-            END TRY
-            BEGIN CATCH
-                PRINT 'ERROR on INSERT ' + @DB + ' : ' +  cast (ERROR_LINE() as varchar(10))
-                    + ' MSG: ' + ERROR_MESSAGE()
-                SET @Id = @Id+1
-            END CATCH
-        End
-    SET @Id = 0
-    SET @IdDB = @IdDB + 1
-END
-
--- END
-SELECT name FROM master.dbo.sysdatabases
-SELECT TOP 10 * FROM MYDB10.dbo.tblAuthors
+-- Insert sample data into the table
+INSERT INTO [User] (name, surname)
+VALUES 
+('John', 'Doe'),
+('Jane', 'Smith'),
+('Michael', 'Brown');
+GO
