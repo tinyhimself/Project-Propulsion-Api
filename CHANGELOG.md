@@ -38,3 +38,7 @@
 
 ### 17/07/2024
 - added database dependency in build.grandle file
+
+### 28/07/2024
+- modified database script file to only create one database, table and insert few sample data
+- new post method 'insertuser' was added and method was tested works as expected
