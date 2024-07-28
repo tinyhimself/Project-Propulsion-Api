@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
 @RestController
 public class ApiController {
     @Autowired
@@ -19,12 +22,22 @@ public class ApiController {
     }
 
     @GetMapping(value = "/getUserID")
-    public User getUserID(@RequestBody String userId)
+    public User getUserID(@RequestBody long userId)
     {
-        User user = new User();
-        user.setId(Long.parseLong(userId));
-        return user;
+        /*
+        Get User by ID
+         */
+        return dbHelpers.getUserById(userId);
     }
+
+    @GetMapping(value = "/getallusers")
+    public List<User> getAllUsers(){
+        /*
+        Get all users
+         */
+        return dbHelpers.getAllUsers();
+    }
+
 
     @PostMapping(value = "/insertUser")
     public User insertUser(@RequestBody User user){
