@@ -46,3 +46,6 @@
 ### 28/07/2024
 
 - created getUserById() and getAllUsers() functions with corresponding controller methods
+
+### 05/08/2024
+- created update user method in controller and DBHelpers

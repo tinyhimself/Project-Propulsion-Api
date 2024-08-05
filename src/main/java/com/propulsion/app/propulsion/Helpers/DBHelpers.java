@@ -4,6 +4,7 @@ import com.propulsion.app.propulsion.Models.User;
 import com.propulsion.app.propulsion.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,32 @@ public class DBHelpers {
             // Handle the exception as needed, e.g., throw a custom exception or return a default user
             return null;
         }
+    }
+
+    public User updateUser(User user) {
+            try{
+                // Retrieve user by ID
+                Optional<User> optionalUser = userRepo.findById(user.getId());
+
+                /*
+                Check if user exist
+                 */
+                if (optionalUser.isPresent()) {
+                    User Update_existing_User = optionalUser.get(); // Get the user if present
+
+                    Update_existing_User.setName(user.getName()); // Update user details
+
+                    Update_existing_User.setSurname(user.getSurname());
+
+                    return userRepo.save(Update_existing_User); // Save updated user
+
+                }else {
+                    return user;
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
+                return user;
+            }
     }
 
 }

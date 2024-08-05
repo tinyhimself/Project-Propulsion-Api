@@ -47,4 +47,12 @@ public class ApiController {
          */
         return dbHelpers.saveUser(user);
     }
+
+    @PostMapping(value = "/UpdateUser")
+    public User updateUser(@RequestBody User user){
+        /*
+        Update user details
+         */
+        return dbHelpers.updateUser(user);
+    }
 }
