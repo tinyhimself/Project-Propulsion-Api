@@ -49,3 +49,4 @@
 
 ### 05/08/2024
 - created update user method in controller and DBHelpers
+- created delete user method in controller and DBHelpers

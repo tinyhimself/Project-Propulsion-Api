@@ -77,4 +77,16 @@ public class DBHelpers {
             }
     }
 
+    public void deleteUser(Long userId) {
+        try {
+            /*
+            Delete user
+             */
+            userRepo.delete(getUserById(userId));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
